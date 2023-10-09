@@ -123,6 +123,7 @@ function getAccessToken2() {
                         // msalRequest.account = accounts[0];
                     }
                     else {
+                        alert("Error: Too many or no accounts logged in");
                         throw ("Error: Too many or no accounts logged in");
                     }
                     _a.label = 11;
