@@ -107,7 +107,8 @@ function getAccessToken2() {
                     return [3 /*break*/, 10];
                 case 8:
                     error_1 = _a.sent();
-                    console.log(error_1);
+                    alert('ssoSilent error');
+                    alert(error_1);
                     return [4 /*yield*/, msalClient.loginRedirect(msalRequest)];
                 case 9:
                     _a.sent();
@@ -115,6 +116,7 @@ function getAccessToken2() {
                 case 10:
                     accounts = msalClient.getAllAccounts();
                     if (accounts.length === 1) {
+                        alert("accounts");
                         alert(accounts);
                         debugger;
                         console.log(accounts);
@@ -134,6 +136,8 @@ function getAccessToken2() {
                     return [2 /*return*/, accessToken];
                 case 13:
                     error_2 = _a.sent();
+                    alert('acquireTokenSilent');
+                    alert(error_2);
                     if (error_2 instanceof msal.InteractionRequiredAuthError) {
                         console.warn("Silent token acquisition failed; acquiring token using redirect");
                         msalClient.acquireTokenRedirect(msalRequest);
