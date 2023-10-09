@@ -81,7 +81,7 @@ export function getAccessToken() {
 }
 function getAccessToken2() {
     return __awaiter(this, void 0, void 0, function () {
-        var error_1, accounts, accessToken, tokenResponse, error_2;
+        var accounts, error_1, accessToken, tokenResponse, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, inTeams()];
@@ -98,6 +98,18 @@ function getAccessToken2() {
                 case 5:
                     // If we were waiting for a redirect with an auth code, handle it here
                     _a.sent();
+                    accounts = msalClient.getAllAccounts();
+                    if (accounts.length === 1) {
+                        alert("accounts");
+                        alert(accounts);
+                        debugger;
+                        console.log(accounts);
+                        msalRequest["account"] = accounts[0];
+                    }
+                    else {
+                        alert("Error: Too many or no accounts logged in");
+                        throw ("Error: Too many or no accounts logged in");
+                    }
                     _a.label = 6;
                 case 6:
                     _a.trys.push([6, 8, , 10]);
@@ -114,28 +126,14 @@ function getAccessToken2() {
                     _a.sent();
                     return [3 /*break*/, 10];
                 case 10:
-                    accounts = msalClient.getAllAccounts();
-                    if (accounts.length === 1) {
-                        alert("accounts");
-                        alert(accounts);
-                        debugger;
-                        console.log(accounts);
-                        // msalRequest.account = accounts[0];
-                    }
-                    else {
-                        alert("Error: Too many or no accounts logged in");
-                        throw ("Error: Too many or no accounts logged in");
-                    }
-                    _a.label = 11;
-                case 11:
-                    _a.trys.push([11, 13, , 14]);
+                    _a.trys.push([10, 12, , 13]);
                     return [4 /*yield*/, msalClient.acquireTokenSilent(msalRequest)];
-                case 12:
+                case 11:
                     tokenResponse = _a.sent();
                     accessToken = tokenResponse.accessToken;
                     alert(accessToken);
                     return [2 /*return*/, accessToken];
-                case 13:
+                case 12:
                     error_2 = _a.sent();
                     alert('acquireTokenSilent');
                     alert(error_2);
@@ -146,8 +144,8 @@ function getAccessToken2() {
                     else {
                         throw (error_2.message);
                     }
-                    return [3 /*break*/, 14];
-                case 14: return [2 /*return*/];
+                    return [3 /*break*/, 13];
+                case 13: return [2 /*return*/];
             }
         });
     });
