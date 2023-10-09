@@ -48,7 +48,7 @@ var msalConfig = {
 };
 // MSAL request object to use over and over
 var msalRequest = {
-    scopes: ["api://mkirpichnik.github.io/AI-Platform/0948fd6f-c5b0-460f-b59a-3481b7dd4702/authorized_user"]
+    scopes: ["api://0948fd6f-c5b0-460f-b59a-3481b7dd4702/authorized_user"]
 };
 var msalClient = new msal.PublicClientApplication(msalConfig);
 var getAppAccessTokenPromise; // Cache the promise so we only do the work once on this page
@@ -108,6 +108,7 @@ function getAccessToken2() {
                     return [3 /*break*/, 10];
                 case 8:
                     error_1 = _a.sent();
+                    console.log(error_1);
                     return [4 /*yield*/, msalClient.loginRedirect(msalRequest)];
                 case 9:
                     _a.sent();
