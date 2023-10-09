@@ -115,6 +115,7 @@ function getAccessToken2() {
                 case 10:
                     accounts = msalClient.getAllAccounts();
                     if (accounts.length === 1) {
+                        alert(accounts);
                         debugger;
                         console.log(accounts);
                         // msalRequest.account = accounts[0];
@@ -129,6 +130,7 @@ function getAccessToken2() {
                 case 12:
                     tokenResponse = _a.sent();
                     accessToken = tokenResponse.accessToken;
+                    alert(accessToken);
                     return [2 /*return*/, accessToken];
                 case 13:
                     error_2 = _a.sent();
