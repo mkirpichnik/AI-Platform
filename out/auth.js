@@ -38,7 +38,7 @@ import { inTeams, ensureTeamsSdkInitialized, getAuthTokenFromTeams } from "./tea
 var msalConfig = {
     auth: {
         clientId: '0948fd6f-c5b0-460f-b59a-3481b7dd4702',
-        authority: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813',
+        authority: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/',
     },
     cache: {
         cacheLocation: "sessionStorage",
