@@ -59,7 +59,7 @@ export function inTeams() {
                     return [4 /*yield*/, microsoftTeams.app.getContext()];
                 case 2:
                     context = _a.sent();
-                    return [2 /*return*/, context != null];
+                    return [2 /*return*/, context.app.host.name === microsoftTeams.HostName.teams];
                 case 3:
                     e_1 = _a.sent();
                     console.log("".concat(e_1, " from Teams SDK, may be running outside of Teams"));
